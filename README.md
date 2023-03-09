@@ -1,2 +1,2 @@
 # regression-model
-This is an implementation of regression models.
+This is the implementation of regression models.
