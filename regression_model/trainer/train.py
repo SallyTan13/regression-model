@@ -1,13 +1,16 @@
+from ..utils.ModelGetter import ModelGetter
+from ..data_process.MyDataset import MyDataset
+from ..loss.MyLoss import MyLoss
+from ..common import PROJECT_ROOT
+
 import yaml
 import torch
-from utils.ModelGetter import ModelGetter
 from tensorboardX import SummaryWriter
-from data_process.MyDataset import MyDataset
 from torch.utils.data import DataLoader
-from loss.MyLoss import MyLoss
+
 
 # load config
-CONFIG_FILE = "config/config.yaml"
+CONFIG_FILE = "regression_model/config/config.yaml"
 
 with open(CONFIG_FILE,"r",encoding="utf-8") as f:
     config = yaml.safe_load(f)
@@ -16,7 +19,8 @@ with open(CONFIG_FILE,"r",encoding="utf-8") as f:
 writer = SummaryWriter("runs/" + config['model'] + "/")
 
 # load dataset
-train_dataset = MyDataset(config['train_data_path'])
+print(PROJECT_ROOT.joinpath(config['train_data_path']))
+train_dataset = MyDataset(PROJECT_ROOT.joinpath(config['train_data_path']))
 train_dataloader = DataLoader(train_dataset,batch_size=config['batch_size'],shuffle=True,num_workers=3)
 test_dataset = MyDataset(config['test_data_path'])
 test_dataloader = DataLoader(test_dataset,batch_size=config['batch_size'],shuffle=False,num_workers=3)

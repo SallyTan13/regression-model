@@ -1,4 +1,4 @@
-from model.GridRegressor import GridRegressor
+from ..model.GridRegressor import GridRegressor
 
 class ModelGetter():
     def __init__(self,config):
