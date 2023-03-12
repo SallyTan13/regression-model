@@ -5,7 +5,7 @@ device: cpu
 epoch: 20
 batch_size: 8
 model: grid_regressor
-data_path: ../dataset/train_grid_data.csv
+train_data_path: data/train_grid_data.csv
 eval_epoch: 5
 save_epoch: 5
 loss_param:
