@@ -4,3 +4,11 @@ num_class: 1
 device: cpu
 epoch: 20
 batch_size: 8
+model: grid_regressor
+data_path: ../dataset/train_grid_data.csv
+eval_epoch: 5
+save_epoch: 5
+loss_param:
+  k1: 1
+  k2: 0
+  k3: 0
